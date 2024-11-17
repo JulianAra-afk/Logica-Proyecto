@@ -1,4 +1,4 @@
-namespace ServicioAdministracionSedes.Messages{
+namespace Proyecto.Messages{
       public class SedeMessage
     {
         public int Id { get; set; }

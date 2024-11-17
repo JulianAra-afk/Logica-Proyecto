@@ -1,4 +1,4 @@
-namespace ServicioAdministracionSedes.Entity
+namespace Proyecto.Entity
 {
     public class SedeDTO
     {

@@ -1,6 +1,6 @@
-using ServicioAdministracionSedes.Messages;
+using Proyecto.Messages;
 
-namespace ServicioAdministracionSedes.Interfaces
+namespace Proyecto.Interfaces
 {
     public interface IMessagePublisher
     {

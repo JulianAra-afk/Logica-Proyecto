@@ -1,7 +1,7 @@
 
-using ServicioAdministracionSedes.Controller;
-using ServicioAdministracionSedes.Interfaces;
-using ServicioAdministracionSedes.Messages;
+using Proyecto.Controller;
+using Proyecto.Interfaces;
+using Proyecto.Messages;
 
 var builder = WebApplication.CreateBuilder(args);
 

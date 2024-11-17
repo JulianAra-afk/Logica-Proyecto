@@ -1,10 +1,10 @@
 
-using ServicioAdministracionSedes.Interfaces;
-using ServicioAdministracionSedes.Messages;
-using ServicioAdministracionSedes.Services;
+using Proyecto.Interfaces;
+using Proyecto.Messages;
 
 
-namespace ServicioAdministracionSedes.Services
+
+namespace Proyecto.Services
 {
      public class SedesService
     {

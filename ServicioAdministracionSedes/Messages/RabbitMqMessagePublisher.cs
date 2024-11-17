@@ -1,10 +1,10 @@
 
-using ServicioAdministracionSedes.Interfaces;
+using Proyecto.Interfaces;
 using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
 
-namespace ServicioAdministracionSedes.Messages{
+namespace Proyecto.Messages{
    public class RabbitMqMessagePublisher : IMessagePublisher
     {
         private readonly ConnectionFactory _factory;

@@ -1,10 +1,10 @@
 
 using Microsoft.AspNetCore.Mvc;
-using ServicioAdministracionSedes.Messages;
-using ServicioAdministracionSedes.Services;
+using Proyecto.Messages;
+using Proyecto.Services;
 
 
-namespace ServicioAdministracionSedes.Controller
+namespace Proyecto.Controller
 {
 
     [ApiController]
