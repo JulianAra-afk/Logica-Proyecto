@@ -17,14 +17,14 @@ namespace Serivicios.Services
 
         public async Task<List<Pago>> GetAllPagosAsync()
         {
-            var response = await _httpClient.GetAsync("https://tu-api-jakarta.com/api/Pagos");
+            var response = await _httpClient.GetAsync("http://localhost:8080/api/Pago");
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<List<Pago>>();
         }
 
         public async Task<Pago> GetPagoByIdAsync(int id)
         {
-            var response = await _httpClient.GetAsync($"https://tu-api-jakarta.com/api/Pagos/{id}");
+            var response = await _httpClient.GetAsync($"http://localhost:8080/api/Pago/{id}");
             if (response.IsSuccessStatusCode)
                 return await response.Content.ReadFromJsonAsync<Pago>();
             return null;
@@ -32,7 +32,7 @@ namespace Serivicios.Services
 
         public async Task CreatePagoAsync(Pago Pago)
         {
-            var url = "https://tu-api-jakarta.com/api/Pagos";
+            var url = "http://localhost:8080/api/Pago";
             var contenidoJson = JsonConvert.SerializeObject(Pago);
 
             var content = new StringContent(contenidoJson, Encoding.UTF8, "application/json");
@@ -47,7 +47,7 @@ namespace Serivicios.Services
 
         public async Task<bool> UpdatePagoAsync(Pago Pago)
         {
-            var url = $"https://tu-api-jakarta.com/api/Pagos/{Pago.PagoId}";  // URL de la API con el ID de la Pago
+            var url = $"http://localhost:8080/api/Pago/{Pago.PagoId}";  // URL de la API con el ID de la Pago
 
             var contenidoJson = JsonConvert.SerializeObject(Pago);  // Serializamos el objeto Entity a JSON
             var content = new StringContent(contenidoJson, Encoding.UTF8, "application/json");  // Creamos el StringContent
@@ -67,7 +67,7 @@ namespace Serivicios.Services
 
         public async Task<bool> DeletePagoAsync(int id)
         {
-            var response = await _httpClient.DeleteAsync($"https://tu-api-jakarta.com/api/Pagos/{id}");
+            var response = await _httpClient.DeleteAsync($"http://localhost:8080/api/Pago/{id}");
             return response.IsSuccessStatusCode;
         }
     }

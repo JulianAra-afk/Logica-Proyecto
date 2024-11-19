@@ -17,14 +17,14 @@ namespace Serivicios.Services
 
         public async Task<List<ProgramaDep>> GetAllProgramaDepsAsync()
         {
-            var response = await _httpClient.GetAsync("https://tu-api-jakarta.com/api/ProgramaDeps");
+            var response = await _httpClient.GetAsync("http://localhost:8080/api/ProgramaDep");
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<List<ProgramaDep>>();
         }
 
         public async Task<ProgramaDep> GetProgramaDepByIdAsync(int id)
         {
-            var response = await _httpClient.GetAsync($"https://tu-api-jakarta.com/api/ProgramaDeps/{id}");
+            var response = await _httpClient.GetAsync($"http://localhost:8080/api/ProgramaDep/{id}");
             if (response.IsSuccessStatusCode)
                 return await response.Content.ReadFromJsonAsync<ProgramaDep>();
             return null;
@@ -32,7 +32,7 @@ namespace Serivicios.Services
 
         public async Task CreateProgramaDepAsync(ProgramaDep ProgramaDep)
         {
-            var url = "https://tu-api-jakarta.com/api/ProgramaDeps";
+            var url = "http://localhost:8080/api/ProgramaDep";
             var contenidoJson = JsonConvert.SerializeObject(ProgramaDep);
 
             var content = new StringContent(contenidoJson, Encoding.UTF8, "application/json");
@@ -47,7 +47,7 @@ namespace Serivicios.Services
 
         public async Task<bool> UpdateProgramaDepAsync(ProgramaDep ProgramaDep)
         {
-            var url = $"https://tu-api-jakarta.com/api/ProgramaDeps/{ProgramaDep.ProgramaId}";  // URL de la API con el ID de la ProgramaDep
+            var url = $"http://localhost:8080/api/ProgramaDep/{ProgramaDep.ProgramaId}";  // URL de la API con el ID de la ProgramaDep
 
             var contenidoJson = JsonConvert.SerializeObject(ProgramaDep);  // Serializamos el objeto Entity a JSON
             var content = new StringContent(contenidoJson, Encoding.UTF8, "application/json");  // Creamos el StringContent
@@ -67,7 +67,7 @@ namespace Serivicios.Services
 
         public async Task<bool> DeleteProgramaDepAsync(int id)
         {
-            var response = await _httpClient.DeleteAsync($"https://tu-api-jakarta.com/api/ProgramaDeps/{id}");
+            var response = await _httpClient.DeleteAsync($"http://localhost:8080/api/ProgramaDep/{id}");
             return response.IsSuccessStatusCode;
         }
     }

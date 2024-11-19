@@ -17,14 +17,14 @@ namespace Serivicios.Services
 
         public async Task<List<Evento>> GetAllEventosAsync()
         {
-            var response = await _httpClient.GetAsync("https://tu-api-jakarta.com/api/Eventos");
+            var response = await _httpClient.GetAsync("http://localhost:8080/api/Evento");
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadFromJsonAsync<List<Evento>>();
         }
 
         public async Task<Evento> GetEventoByIdAsync(int id)
         {
-            var response = await _httpClient.GetAsync($"https://tu-api-jakarta.com/api/Eventos/{id}");
+            var response = await _httpClient.GetAsync($"http://localhost:8080/api/Evento/{id}");
             if (response.IsSuccessStatusCode)
                 return await response.Content.ReadFromJsonAsync<Evento>();
             return null;
@@ -32,7 +32,7 @@ namespace Serivicios.Services
 
         public async Task CreateEventoAsync(Evento Evento)
         {
-            var url = "https://tu-api-jakarta.com/api/Eventos";
+            var url = "http://localhost:8080/api/Evento";
             var contenidoJson = JsonConvert.SerializeObject(Evento);
 
             var content = new StringContent(contenidoJson, Encoding.UTF8, "application/json");
@@ -47,7 +47,7 @@ namespace Serivicios.Services
 
         public async Task<bool> UpdateEventoAsync(Evento Evento)
         {
-            var url = $"https://tu-api-jakarta.com/api/Eventos/{Evento.EventoId}";  // URL de la API con el ID de la Evento
+            var url = $"http://localhost:8080/api/Evento{Evento.EventoId}";  // URL de la API con el ID de la Evento
 
             var contenidoJson = JsonConvert.SerializeObject(Evento);  // Serializamos el objeto Entity a JSON
             var content = new StringContent(contenidoJson, Encoding.UTF8, "application/json");  // Creamos el StringContent
@@ -67,7 +67,7 @@ namespace Serivicios.Services
 
         public async Task<bool> DeleteEventoAsync(int id)
         {
-            var response = await _httpClient.DeleteAsync($"https://tu-api-jakarta.com/api/Eventos/{id}");
+            var response = await _httpClient.DeleteAsync($"http://localhost:8080/api/Evento({id}");
             return response.IsSuccessStatusCode;
         }
     }
